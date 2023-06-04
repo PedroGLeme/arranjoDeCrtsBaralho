@@ -1,0 +1,57 @@
+///Escolha um jogo de cartas, baseado em um “baralho tradicional” (cada carta tem seu naipe e seu valor)
+///ou tipo “super trunfo” (cada carta possui um conjunto de atributos). Implemente a parte de distribuição
+///(sorteio) de cartas para 2 jogadores, considerando que cada jogador irá receber 5 cartas. Exiba na tela
+///as cartas que cada um dos jogadores recebeu.
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <time.h>
+
+typedef struct t_cartas
+{
+    int nro;
+    char naipe;
+}t_crt;
+
+int main()
+{
+    int nro[20];
+    int naipe[5];
+    int i;
+
+    t_crt crt[52];
+    srand(time(NULL));
+
+    for( i=0 ; i<10; i++)
+    {
+        nro[i]= i + 1;
+    }
+    for( i=0; i<4; i++)
+    {
+        naipe[i]= i + 1;
+    }
+
+    printf("cartas do jogador 1 \n");
+    printf(" Nro naipe\n");
+    for (i=1; i<=5; i++)
+    {
+        crt[i].nro= nro[rand()%10];
+        crt[i].naipe= naipe[rand()%4];
+
+        printf(" %d    %d \n", crt[i].nro, crt[i].naipe);
+    }
+
+     printf("cartas do jogador 2 \n");
+     printf(" Nro naipe\n");
+    for (i=1; i<=5; i++)
+    {
+        crt[i].nro= nro[rand()%10];
+        crt[i].naipe= naipe[rand()%4];
+
+        printf(" %d    %d \n", crt[i].nro, crt[i].naipe);
+    }
+
+
+    return 0;
+}
